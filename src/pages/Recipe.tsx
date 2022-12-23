@@ -132,7 +132,7 @@ const Recipe = () => {
   return (
     <>
       <Header />
-      <Flex p={2} w="100%" minH="100vh" h="auto" pt={20} flexDir={"column"}>
+      <Flex p={5} w="100%" minH="100vh" h="auto" pt={20} flexDir={"column"}>
         <Flex flexDir={{ base: "column", md: "row" }}>
           {recipe && (
             <>
