@@ -58,6 +58,8 @@ const Header = () => {
         backdropFilter="auto"
         backdropBlur="5px"
         p={2}
+        pr={5}
+        pl={5}
         w="100%"
         justify={"space-between"}
         pos="fixed"
@@ -82,7 +84,7 @@ const Header = () => {
                 minW={0}
               >
                 <Flex color="secondary" _hover={{ color: "primary" }}>
-                  <Text fontWeight={'700'} mr={2} alignSelf={"center"}>
+                  <Text fontWeight={"700"} mr={2} alignSelf={"center"}>
                     {profile.full_name}
                   </Text>
                   <Avatar size={"sm"} src={profile.avatar_url} />
@@ -100,7 +102,7 @@ const Header = () => {
                 <br />
                 <MenuDivider />
                 <MenuItem fontWeight={"600"}>
-                <Link as={RouterLink} to="/my-recipes">
+                  <Link as={RouterLink} to="/my-recipes">
                     My Recipes
                   </Link>
                 </MenuItem>
@@ -152,14 +154,6 @@ const Header = () => {
               <VStack fontSize={20} fontWeight={"600"}>
                 {profile ? (
                   <>
-                    <Link
-                      _hover={{ color: "secondary" }}
-                      as={RouterLink}
-                      to="/saved-recipes"
-                      color="primary"
-                    >
-                      Saved Recipes
-                    </Link>
                     <Link
                       _hover={{ color: "secondary" }}
                       as={RouterLink}
