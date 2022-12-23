@@ -5,7 +5,6 @@ import { Recipe } from "../utils/customTypes";
 const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
   const  navigate = useNavigate();
   return (
-    <>
       <Flex
         onClick={() => navigate(`/recipe/${recipe.id}`)}
         _hover={{
@@ -15,9 +14,9 @@ const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
         }}
         p={{ base: 2, md: 5 }}
         rounded={10}
-        bg="white"
+        bg="redwhite"
         w={"100%"}
-        h={{ base: 170, md: 300 }}
+        h={{ base: 190, md: 300 }}
         boxShadow={"md"}
         flexDir="column"
         justify={"space-between"}
@@ -83,7 +82,6 @@ const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
           </Flex>
         </Flex>
       </Flex>
-    </>
   );
 };
 

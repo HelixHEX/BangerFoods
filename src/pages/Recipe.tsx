@@ -236,81 +236,84 @@ const Recipe = () => {
           )}
         </Flex>
         <Divider mt={10} />
-        <Flex flexDir='column' pl={{base: 2, md: 40}} pr={{base: 2, md: 40}}>
-        <Heading mt={5} color="secondary" alignSelf={"center"}>
-          Comments
-        </Heading>
-        {profile && (
-          <Flex
-          mb={10}
-            mt={5}
-            justify={{ base: "start", md: "space-between" }}
-            flexDir={{ base: "column", md: "row" }}
-          >
-            <Flex h={50}>
-              <Avatar
-                alignSelf={"center"}
-                size={"sm"}
-                src={profile?.avatar_url}
-              />
-              <Text
-                color="secondary"
-                fontWeight="700"
-                ml={2}
-                alignSelf={"center"}
-              >
-                {profile?.full_name}
-              </Text>
-            </Flex>
+        <Flex
+          flexDir="column"
+          pl={{ base: 2, md: 40 }}
+          pr={{ base: 2, md: 40 }}
+        >
+          <Heading mt={5} color="secondary" alignSelf={"center"}>
+            Comments
+          </Heading>
+          {profile && (
             <Flex
-              p={2}
-              flexDir="column"
-              rounded={10}
-              ml={{ base: 0, md: 5 }}
-              boxShadow={"2xl"}
-              bg="white"
-              w={{ base: "100%", md: "80%" }}
-              h={300}
-              justify='center'
+              mb={10}
+              mt={5}
+              justify={{ base: "start", md: "space-between" }}
+              flexDir={{ base: "column", md: "row" }}
             >
-              <Textarea
-              minH={240}
-                placeholder="Leave a comment"
-                h={240}
-                maxH={240}
-                border="none"
-                bg="none"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
-              <Button
-                props={{ alignSelf: "flex-end", mt: 2 }}
-                variant="solid"
-                bg="primary"
-                w={100}
-                color="white"
-                h={35}
-                onClick={createComment}
-                disabled={comment.length === 0 ? true : false}
-                
+              <Flex h={50}>
+                <Avatar
+                  alignSelf={"center"}
+                  size={"sm"}
+                  src={profile?.avatar_url}
+                />
+                <Text
+                  color="secondary"
+                  fontWeight="700"
+                  ml={2}
+                  alignSelf={"center"}
+                >
+                  {profile?.full_name}
+                </Text>
+              </Flex>
+              <Flex
+                p={2}
+                flexDir="column"
+                rounded={10}
+                ml={{ base: 0, md: 5 }}
+                boxShadow={"2xl"}
+                bg="white"
+                w={{ base: "100%", md: "80%" }}
+                h={300}
+                justify="center"
               >
-                <Text>Comment</Text>
-              </Button>
+                <Textarea
+                  minH={240}
+                  placeholder="Leave a comment"
+                  h={240}
+                  maxH={240}
+                  border="none"
+                  bg="none"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+                <Button
+                  props={{ alignSelf: "flex-end", mt: 2 }}
+                  variant="solid"
+                  bg="primary"
+                  w={100}
+                  color="white"
+                  h={35}
+                  onClick={createComment}
+                  disabled={comment.length === 0 ? true : false}
+                >
+                  <Text>Comment</Text>
+                </Button>
+              </Flex>
             </Flex>
-          </Flex>
-        )}
-        {loadingComments && <Heading color="secondary">Loading...</Heading>}
-        {comments && (
-          <Flex mb={10} flexDir={"column"}>
-            {comments.map((comment, index) => (
-              <Comment
-                fetchComments={fetchComments}
-                comment={comment}
-                key={index}
-              />
-            ))}
-          </Flex>
-        )}
+          )}
+          {loadingComments && <Heading color="secondary">Loading...</Heading>}
+          {comments && (
+            <Flex mb={10} flexDir={"column"}>
+              {comments.map((comment, index) => (
+                <Comment
+                  fetchComments={fetchComments}
+                  comment={comment}
+                  key={index}
+                />
+              ))}
+            </Flex>
+          )}
         </Flex>
       </Flex>
     </>
