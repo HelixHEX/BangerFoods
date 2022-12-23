@@ -12,6 +12,7 @@ import {
   Heading,
   Image,
   ListItem,
+  OrderedList,
   Stack,
   Text,
   Textarea,
@@ -184,13 +185,13 @@ const Recipe = () => {
                 <Heading mt={5} fontSize={20} color="secondary">
                   Directions
                 </Heading>
-                <UnorderedList>
+                <OrderedList>
                   {recipe.directions.map((direction, index) => (
                     <ListItem mt={3} key={index}>
                       {direction}
                     </ListItem>
                   ))}
-                </UnorderedList>
+                </OrderedList>
                 <Stack
                   w={{ base: "auto", md: 400 }}
                   justify="space-between"
@@ -300,7 +301,7 @@ const Recipe = () => {
         )}
         {loadingComments && <Heading color="secondary">Loading...</Heading>}
         {comments && (
-          <Flex flexDir={"column"}>
+          <Flex mb={10} flexDir={"column"}>
             {comments.map((comment, index) => (
               <Comment
                 fetchComments={fetchComments}
